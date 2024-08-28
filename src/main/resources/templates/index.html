@@ -1,0 +1,22 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/styles/main.css}" rel="stylesheet" />
+    <title>Title</title>
+</head>
+<body>
+    <div class="center">
+        <h1>Please select the project you would like to view:</h1>
+        <form th:action="@{/report}" method="post">
+            <select name="id">
+                <option th:each="p : ${projects}" th:text="${p.getName()}" th:value="${p.getId()}"}>offline</option>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+<footer>
+</footer>
+</html>

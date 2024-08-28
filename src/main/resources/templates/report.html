@@ -1,0 +1,102 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+	<link th:href="@{/styles/main.css}" rel="stylesheet" />
+    <title>Title</title>
+</head>
+<body>
+	<h1>Issues Breakdown by OWASP Category and Severity</h1>
+    <table>
+	<tr>OWASP Vulnerabilities<tr>
+  	<tr>
+    	<th>Catagory</th>
+		<th>Blocker</th>
+    	<th>Critical</th>
+    	<th>Major</th>
+    	<th>Minor</th> 
+    	<th>Info</th>
+  	</tr>
+	<tr>
+  		<td>A1 - Injection</td>
+    	<td th:text="${a1.getNumOfBlocker}">0</td>
+    	<td th:text="${a1.getNumOfCritical}">0</td>
+    	<td th:text="${a1.getNumOfMajor}">0</td>
+    	<td th:text="${a1.getNumOfMinor}">0</td>
+    	<td th:text="${a1.getNumOfInfo}">0</td>
+  	</tr>
+	<tr>
+  		<td>A2 - Broken Authentication</td>
+		<td th:text="${a2.getNumOfBlocker}">0</td>
+		<td th:text="${a2.getNumOfCritical}">0</td>
+		<td th:text="${a2.getNumOfMajor}">0</td>
+		<td th:text="${a2.getNumOfMinor}">0</td>
+		<td th:text="${a2.getNumOfInfo}">0</td>
+  	</tr>
+	<tr>
+    	<td>A3 - Sensitive Data Exposure</td>
+		<td th:text="${a3.getNumOfBlocker}">0</td>
+		<td th:text="${a3.getNumOfCritical}">0</td>
+		<td th:text="${a3.getNumOfMajor}">0</td>
+		<td th:text="${a3.getNumOfMinor}">0</td>
+		<td th:text="${a3.getNumOfInfo}">0</td>
+  	</tr>
+	<tr>
+    	<td>A4 - XML External Entities (XXE)</td>
+		<td th:text="${a4.getNumOfBlocker}">0</td>
+		<td th:text="${a4.getNumOfCritical}">0</td>
+		<td th:text="${a4.getNumOfMajor}">0</td>
+		<td th:text="${a4.getNumOfMinor}">0</td>
+		<td th:text="${a4.getNumOfInfo}">0</td>
+  	</tr>
+	<tr>
+    	<td>A5 - Broken Access Control</td>
+		<td th:text="${a5.getNumOfBlocker}">0</td>
+		<td th:text="${a5.getNumOfCritical}">0</td>
+		<td th:text="${a5.getNumOfMajor}">0</td>
+		<td th:text="${a5.getNumOfMinor}">0</td>
+		<td th:text="${a5.getNumOfInfo}">0</td>
+  	</tr>
+	<tr>
+    	<td>A6 - Security Misconfiguration</td>
+		<td th:text="${a6.getNumOfBlocker}">0</td>
+		<td th:text="${a6.getNumOfCritical}">0</td>
+		<td th:text="${a6.getNumOfMajor}">0</td>
+		<td th:text="${a6.getNumOfMinor}">0</td>
+		<td th:text="${a6.getNumOfInfo}">0</td>
+  	</tr>
+	<tr>
+    	<td>A7 - Cross-Site Scripting (XSS)</td>
+		<td th:text="${a7.getNumOfBlocker}">0</td>
+		<td th:text="${a7.getNumOfCritical}">0</td>
+		<td th:text="${a7.getNumOfMajor}">0</td>
+		<td th:text="${a7.getNumOfMinor}">0</td>
+		<td th:text="${a7.getNumOfInfo}">0</td>
+  	</tr>
+	<tr>
+    	<td>A8 - Insecure Deserialization</td>
+		<td th:text="${a8.getNumOfBlocker}">0</td>
+		<td th:text="${a8.getNumOfCritical}">0</td>
+		<td th:text="${a8.getNumOfMajor}">0</td>
+		<td th:text="${a8.getNumOfMinor}">0</td>
+		<td th:text="${a8.getNumOfInfo}">0</td>
+  	</tr>
+	<tr>
+    	<td>A9 - Using Components with Known Vulnerabilities </td>
+		<td th:text="${a9.getNumOfBlocker}">0</td>
+		<td th:text="${a9.getNumOfCritical}">0</td>
+		<td th:text="${a9.getNumOfMajor}">0</td>
+		<td th:text="${a9.getNumOfMinor}">0</td>
+		<td th:text="${a9.getNumOfInfo}">0</td>
+  	</tr>
+	<tr>
+    	<td>A10 - Insufficient Logging & Monitoring</td>
+		<td th:text="${a10.getNumOfBlocker}">0</td>
+		<td th:text="${a10.getNumOfCritical}">0</td>
+		<td th:text="${a10.getNumOfMajor}">0</td>
+		<td th:text="${a10.getNumOfMinor}">0</td>
+		<td th:text="${a10.getNumOfInfo}">0</td>
+  	</tr>
+	</table>
+</body>
+</html>

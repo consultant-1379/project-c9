@@ -1,0 +1,21 @@
+html{
+    width:80%;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+}
+
+
+body{
+    display:flex;
+    flex-direction:column;
+    border-style:double;
+    grid-area:main;
+    padding:3em;
+}
+
+tr td:(:first-of-type){
+    text-align:center;
+}

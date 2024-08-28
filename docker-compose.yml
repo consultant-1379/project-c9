@@ -1,0 +1,73 @@
+version: '3'
+
+services:
+
+  myapp-mysql:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_DATABASE=g4
+      - MYSQL_USER=myapp-user
+      - MYSQL_PASSWORD=pass
+    ports:
+      - 3306:3306
+    networks:
+      - sonarqube-net
+
+  myapp-main:
+    build: .
+    restart: on-failure
+    depends_on:
+      - myapp-mysql
+    ports:
+      - 8080:8080
+    environment:
+      - DATABASE_HOST=myapp-mysql
+      - DATABASE_USER=myapp-user
+      - DATABASE_PASSWORD=pass
+      - DATABASE_NAME=g4
+      - DATABASE_PORT=3306
+    networks:
+      - sonarqube-net
+
+
+  sonar-db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=sonar
+      - POSTGRES_DB=sonar
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - sonarqube-net
+
+  sonarqube:
+    image: sonarqube:8.2-community
+    depends_on:
+      - sonar-db
+    environment:
+      - sonar.jdbc.username=sonar
+      - sonar.jdbc.url=jdbc:postgresql://sonar-db/sonar
+      - sonar.jdbc.password=sonar
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+    ports:
+      - 9000:9000
+    volumes:
+      - sonar_conf:/opt/sonarqube/conf
+      - sonar_data:/usr/share/elasticsearch/data
+      - sonar_extensions:/usr/share/extensions
+      - sonar_plugins:/opt/sonarqube/lib/bundled-plugins
+    networks:
+      - sonarqube-net
+
+networks:
+  sonarqube-net:
+    driver: bridge
+
+volumes:
+  sonar_conf:
+  sonar_data:
+  sonar_extensions:
+  sonar_plugins:
+  postgres_data:
